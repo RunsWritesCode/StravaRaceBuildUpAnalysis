@@ -1,6 +1,6 @@
 h1 {
   font-family: 'Merienda One', cursive;
-  color: white;
+  color: darkCyan;
 }
 
 h2 {
@@ -75,29 +75,22 @@ body {
   color: #ad1a00;
 }
 
-.embed-container {
-position: relative;
-padding-bottom: 56.3%;
-height: 0;
-overflow: hidden;
-max-width: 100%;
-height: auto;
+
+#select-race-div {
+  background-image: url('../images/chamonix_header.jpg');
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-position: absolute;
-width: 100%;
-top: 0;
-left: 0;
-height: 100%;
+select, #select-race-button {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }
 
-/* swapped image for video */
-/* IMG.banner {
-  max-width: 100%;
+IMG {
+  max-width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-} */
+}

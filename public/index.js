@@ -6,22 +6,22 @@ var app = function() {
   request.addEventListener('load', function() {
     var activitiesData = JSON.parse(request.responseText);
     console.log("Length:", activitiesData);
-    renderList(activitiesData);
+    // renderList(activitiesData);
     createRaceList(activitiesData);
   });
 
   request.send();
 
-  var urlkoms = 'https://www.strava.com/api/v3/athletes/5620150/koms?access_token=' + keys.apiKey;
-  var requestkoms = new XMLHttpRequest();
-  requestkoms.open("GET", urlkoms);
-
-  requestkoms.addEventListener('load', function() {
-    var komsData = JSON.parse(requestkoms.responseText);
-    renderKoms(komsData);
-  });
-
-  requestkoms.send();
+  // var urlkoms = 'https://www.strava.com/api/v3/athletes/5620150/koms?access_token=' + keys.apiKey;
+  // var requestkoms = new XMLHttpRequest();
+  // requestkoms.open("GET", urlkoms);
+  //
+  // requestkoms.addEventListener('load', function() {
+  //   var komsData = JSON.parse(requestkoms.responseText);
+  //   renderKoms(komsData);
+  // });
+  //
+  // requestkoms.send();
 
 };
 
@@ -39,15 +39,15 @@ var createRaceList = function(allActivities) {
 }
 
 
-var renderList = function(allActivities) {
-  var mainDiv = document.getElementById('main');
-
-  allActivities.forEach(function (activity) {
-    var div = createListItem(activity);
-    mainDiv.appendChild(div);
-  });
-
-};
+// var renderList = function(allActivities) {
+//   var mainDiv = document.getElementById('main');
+//
+//   allActivities.forEach(function (activity) {
+//     var div = createListItem(activity);
+//     mainDiv.appendChild(div);
+//   });
+//
+// };
 
 // var renderKoms = function(allKoms) {
 //   var komsDiv = document.getElementById('koms');
@@ -57,28 +57,28 @@ var renderList = function(allActivities) {
 //   });
 // };
 
-
-var createListItem = function(singleActivity) {
-  var insideDiv = document.createElement('div');
-  insideDiv.style.backgroundColor = backGroundRunType(singleActivity.workout_type);
-  var pTag = document.createElement('p');
-  pTag.innerHTML = singleActivity.name;
-  pTag.setAttribute('id', 'act_name');
-  var pTag2 = document.createElement('p');
-  pTag2.innerText = convertToKm(singleActivity.distance).toFixed(2) + " km";
-  pTag2.setAttribute('id', 'distance');
-  var pTag3 = document.createElement('p');
-  pTag3.innerText = convertToTime(singleActivity.moving_time).toFixed(0) + " minutes";
-  pTag3.setAttribute('id', 'time');
-  var pTag4 = document.createElement('p');
-  pTag4.innerText = "elevation gain: " + singleActivity.total_elevation_gain + " m";
-  pTag4.setAttribute('id', 'elevation');
-  insideDiv.appendChild(pTag);
-  insideDiv.appendChild(pTag2);
-  insideDiv.appendChild(pTag3);
-  insideDiv.appendChild(pTag4);
-  return insideDiv
-};
+//
+// var createListItem = function(singleActivity) {
+//   var insideDiv = document.createElement('div');
+//   insideDiv.style.backgroundColor = backGroundRunType(singleActivity.workout_type);
+//   var pTag = document.createElement('p');
+//   pTag.innerHTML = singleActivity.name;
+//   pTag.setAttribute('id', 'act_name');
+//   var pTag2 = document.createElement('p');
+//   pTag2.innerText = convertToKm(singleActivity.distance).toFixed(2) + " km";
+//   pTag2.setAttribute('id', 'distance');
+//   var pTag3 = document.createElement('p');
+//   pTag3.innerText = convertToTime(singleActivity.moving_time).toFixed(0) + " minutes";
+//   pTag3.setAttribute('id', 'time');
+//   var pTag4 = document.createElement('p');
+//   pTag4.innerText = "elevation gain: " + singleActivity.total_elevation_gain + " m";
+//   pTag4.setAttribute('id', 'elevation');
+//   insideDiv.appendChild(pTag);
+//   insideDiv.appendChild(pTag2);
+//   insideDiv.appendChild(pTag3);
+//   insideDiv.appendChild(pTag4);
+//   return insideDiv
+// };
 
 // var createKomsItem = function(kom) {
 //   var insideKomDiv = document.createElement('div');

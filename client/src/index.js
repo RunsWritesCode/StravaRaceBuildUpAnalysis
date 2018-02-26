@@ -1,20 +1,12 @@
 var RaceList = require('./models/race_list');
 var raceListSelector = require('./views/race_list_selector');
+var PieChart = require('./models/pie_chart');
 
 var app = function() {
   var raceList = new RaceList();
   raceList.getRaceList(raceListSelector);
 
-  var pieChat2 = new PieChat();
-  pieChart.render(data)
-  var pieChartView2 = new PieChartView;
-
-
-
-
-
-
-
+  var workoutPieChart = new PieChart(this);
 
 };
 

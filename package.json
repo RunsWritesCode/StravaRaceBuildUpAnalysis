@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
+    "highcharts": "^6.0.7",
     "webpack-cli": "^2.0.9"
   },
   "devDependencies": {

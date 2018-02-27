@@ -1,16 +1,23 @@
 var RaceList = require('./models/race_list');
 var raceListSelector = require('./views/race_list_selector');
 var PieChart = require('./models/pie_chart');
+var moment = require('moment');
 
 var app = function() {
   var raceList = new RaceList();
   raceList.getRaceList(raceListSelector);
-
   var workoutPieChart = new PieChart(this);
+
+  // selectedRace.start_date = moment().endOf('week')
+  var day = moment("2018-02-24", "YYYY-MM-DD");
+  var lastthree = moment(day).subtract(3, 'months');
+  var parsedLastThree = moment(lastthree, "YYYY-MM-DD");
+  console.log(parsedLastThree);
 
 };
 
 
+window.addEventListener('load', app);
 
 
 
@@ -41,8 +48,6 @@ var app = function() {
 // }
 
 
-
-window.addEventListener('load', app);
 
 
 

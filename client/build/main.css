@@ -11,6 +11,7 @@ h2 {
 }
 
 body {
+  background-color: #090023;
 }
 
 #main div {
@@ -93,4 +94,18 @@ IMG {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-background {
+  fill: #090023;
+  stroke: #000066;
+  stroke-width: 2px;
+}
+
+.highcharts-title {
+  font-family: 'Lora', serif;
+  color: white;
+  font-size: 20px;
 }

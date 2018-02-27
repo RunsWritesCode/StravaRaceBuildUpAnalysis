@@ -9,6 +9,11 @@ RaceList.prototype.getRaceList = function (renderDropdown) {
   request(renderDropdown, this.url);
 };
 
+
+module.exports = RaceList;
+
+
+
 // const raceList = function(renderOnComplete) {
 //
 // var url = 'https://www.strava.com/api/v3/athlete/activities?access_token=' + keys.apiKey + '&client_id=' + keys.clientId + '&client_secret=' + keys.clientSecret + '&per_page=200';
@@ -23,5 +28,3 @@ RaceList.prototype.getRaceList = function (renderDropdown) {
 //
 // request.send();
 // }
-
-module.exports = RaceList;

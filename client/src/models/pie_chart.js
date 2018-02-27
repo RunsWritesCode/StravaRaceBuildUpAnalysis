@@ -19,37 +19,33 @@ PieChart.prototype.populatePieChart = function (allActivities) {
 
 allActivities.forEach( function(element) {
 
+  // if loop to get date series
+
   switch (element.workout_type) {
     case 0:
-    console.log("0");
+    // console.log("0");
       pieChartDataHash[0].y ++;
       break;
     case 1:
-    console.log("1");
+    // console.log("1");
       pieChartDataHash[1].y ++;
       break;
     case null:
-    console.log("null");
+    // console.log("null");
       pieChartDataHash[0].y ++;
       break;
     case 2:
-    console.log("2");
+    // console.log("2");
       pieChartDataHash[2].y ++;
       break;
     case 3:
-    console.log("3");
+    // console.log("3");
       pieChartDataHash[3].y++;
       break;
   }
-  return;// pieChartDataHash;
+  return;
 });
 
-
-// console.log("workout:" + this.pieChartDataHash.workout);
-// console.log("easy:" + this.pieChartDataHash.easy);
-// console.log("long:" + this.pieChartDataHash.long);
-// console.log("race:" + this.pieChartDataHash.race);
-console.log(pieChartDataHash);
 
 var container = document.getElementById("pie-chart");
 

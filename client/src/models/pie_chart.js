@@ -1,23 +1,52 @@
 const Highcharts = require('Highcharts');
 var request = require('../services/request');
 const keys = require('../services/keys');
+const Moment = require('moment');
+const MomentRange = require('moment-range');
+const moment = MomentRange.extendMoment(Moment);
 
 
-const PieChart = function(allActivities) {
-this.url = 'https://www.strava.com/api/v3/athlete/activities?access_token=' + keys.apiKey + '&client_id=' + keys.clientId + '&client_secret=' + keys.clientSecret + '&per_page=200';
-request(this.populatePieChart, this.url);
+const PieChart = function() {
+  this.url = 'https://www.strava.com/api/v3/athlete/activities?access_token=' + keys.apiKey + '&client_id=' + keys.clientId + '&client_secret=' + keys.clientSecret + '&per_page=200';
+  this.activities = [];
+  this.filteredActivities = [];
+  request(this.populatePieChart.bind(this), this.url);
 };
 
-PieChart.prototype.populatePieChart = function (allActivities) {
+PieChart.prototype.populatePieChart = function (allActivities, endDate, startDate) {
+
+  if(allActivities){
+    this.activities = allActivities;
+  }
+
+  if(startDate && endDate){
+    console.log("startDate:", startDate);
+    console.log("endDate:", endDate);
+    var range = moment.range(startDate, endDate);
+
+    this.activities.forEach((activity) => {
+      var startDateMoment = moment(activity.start_date)
+      console.log(startDateMoment.within(range));
+      if (startDateMoment.within(range)) {
+        this.filteredActivities.push(activity);
+      }
+
+
+    })
+    console.log(this.filteredActivities);
+
+  }
+
+
   let pieChartDataHash = [
-      {x: "easy", y: 0},
-      {x: "workout", y: 0},
-      {x: "long", y: 0},
-      {x: "race", y: 0}
+      {name: "easy", y: 0},
+      {name: "workout", y: 0},
+      {name: "long", y: 0},
+      {name: "race", y: 0}
     ]
 
 
-allActivities.forEach( function(element) {
+this.filteredActivities.forEach( function(element) {
 
   // if loop to get date series
 
@@ -62,9 +91,10 @@ var workoutPieChart = new Highcharts.Chart({
   },
   series: [
     {
+      name: name
       data: pieChartDataHash
     }
-  ]
+  ],
 });
 
 

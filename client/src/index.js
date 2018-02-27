@@ -6,13 +6,23 @@ var moment = require('moment');
 var app = function() {
   var raceList = new RaceList();
   raceList.getRaceList(raceListSelector);
-  var workoutPieChart = new PieChart(this);
+  var workoutPieChart = new PieChart();
 
-  // selectedRace.start_date = moment().endOf('week')
-  var day = moment("2018-02-24", "YYYY-MM-DD");
-  var lastthree = moment(day).subtract(3, 'months');
-  var parsedLastThree = moment(lastthree, "YYYY-MM-DD");
-  console.log(parsedLastThree);
+  //bind the button event
+  var viewRaceBtn = document.getElementById('select-race-button');
+
+  viewRaceBtn.addEventListener('click', function(){
+    var raceList = document.getElementById('race-select-list');
+
+    var endDate = moment(raceList.value, "YYYY-MM-DD");
+    var startDate = moment(endDate).subtract(3, 'months');
+    // var startDate = moment(lastthree, "YYYY-MM-DD");
+    // console.log(startDate);
+
+    workoutPieChart.populatePieChart(null, endDate, startDate);
+  })
+
+
 
 };
 

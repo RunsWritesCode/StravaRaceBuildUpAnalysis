@@ -89,14 +89,14 @@ select {
   margin-bottom: 20px;
 }
 
-#summary {
+#summary, #summary-six {
   background-color: #5cb85c;
   color: #428bca;
   font-size: 30px;
   text-align: center;
 }
 
-#elevation {
+#elevation, #elevation-six {
   background-color: #428bca;
   color: #5cb85c;
   font-size: 30px;

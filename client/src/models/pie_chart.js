@@ -56,23 +56,23 @@ this.filteredActivities.forEach( function(element) {
   switch (element.workout_type) {
     case 0:
     // console.log("0");
-      pieChartDataHash[0].y ++;
+      pieChartDataHash[0].y += element.distance;
       break;
     case 1:
     // console.log("1");
-      pieChartDataHash[1].y ++;
+      pieChartDataHash[1].y += element.distance;
       break;
     case null:
     // console.log("null");
-      pieChartDataHash[0].y ++;
+      pieChartDataHash[0].y += element.distance;
       break;
     case 2:
     // console.log("2");
-      pieChartDataHash[2].y ++;
+      pieChartDataHash[2].y += element.distance;
       break;
     case 3:
     // console.log("3");
-      pieChartDataHash[3].y++;
+      pieChartDataHash[3].y += element.distance;
       break;
   }
   return;
@@ -91,7 +91,7 @@ var workoutPieChart = new Highcharts.Chart({
     pointFormat: 'Workout types proportion'
   },
   title: {
-    text: "Run types",
+    text: "Miles run by workout type",
     style: {
                 color: '#ffbf00'
             }

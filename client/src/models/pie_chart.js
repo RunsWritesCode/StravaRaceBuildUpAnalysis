@@ -43,10 +43,10 @@ PieChart.prototype.populatePieChart = function (allActivities, endDate, startDat
 
 
   let pieChartDataHash = [
-      {name: "easy", y: 0},
-      {name: "race", y: 0},
-      {name: "long", y: 0},
-      {name: "work out", y: 0}
+      {name: "easy", y: 0, color: '#5cb85c'},
+      {name: "race", y: 0, color: '#e35d6a'},
+      {name: "long", y: 0, color: '#e7ff16'},
+      {name: "work out", y: 0, color: '#428bca'}
     ]
 
 
@@ -78,8 +78,7 @@ this.filteredActivities.forEach( function(element) {
   return;
 });
 
-var rainbow = ['#5cb85c', '#e35d6a', '#e7ff16', '#428bca'];
-
+// var rainbow = ['#5cb85c', '#e35d6a', '#e7ff16', '#428bca'];
 
 var container = document.getElementById("pie-chart");
 
@@ -98,7 +97,7 @@ var workoutPieChart = new Highcharts.Chart({
     {
       name: name,
       data: pieChartDataHash,
-      // color: rainbow
+      color: ""
     }
   ],
 });

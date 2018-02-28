@@ -1,11 +1,8 @@
 var totalView = function(totalDistance) {
   var pTotalTag = document.querySelector('#total-distance');
-  pTotalTag.innerText = totalDistance.toFixed(2);
+  pTotalTag.innerText = `12 week total distance: ${(totalDistance/1000).toFixed(2)} km`;
 }
 
-// var convertToKm = function(distance) {
-//   var distance = distance/1000;
-//   return distance
-// }
+
 
 module.exports = totalView;

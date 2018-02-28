@@ -1,18 +1,33 @@
 h1 {
   font-family: 'Merienda One', cursive;
-  color: darkCyan;
+  /* color: darkCyan; */
 }
 
 h2 {
   font-family: 'Merienda One', cursive;
-  background-color: #c7dbf9;
+  background-color: #ffbf00;
   padding: 10px;
+  color: #428bca
+}
 
+button {
+    background-color: #5cb85c;
+    border: none;
+    color: #ffbf00;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid #428bca;
 }
 
 body {
   background-color: #090023;
-  color: white;
+  color: #f1f1f1;
 }
 
 #main div {
@@ -79,7 +94,7 @@ body {
 
 
 #select-race-div {
-  background-image: url('./images/chamonix_header.jpg');
+  background-color: #e35d6a;
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -88,6 +103,12 @@ select, #select-race-button {
   text-align: center;
   margin: 0 auto;
   display: block;
+}
+
+select {
+  background-color: #428bca;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 IMG {
@@ -104,12 +125,12 @@ IMG {
   stroke: #000066;
   stroke-width: 2px;
 }
-
+/*
 .highcharts-title {
   font-family: 'Lora', serif;
-  color: white;
+  color: #e35d6a;
   font-size: 40px;
-}
+} */
 
 #container {
 	height: 400px;

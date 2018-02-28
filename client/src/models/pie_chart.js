@@ -45,7 +45,7 @@ PieChart.prototype.populatePieChart = function (allActivities, endDate, startDat
   let pieChartDataHash = [
       {name: "easy", y: 0, color: '#5cb85c'},
       {name: "race", y: 0, color: '#e35d6a'},
-      {name: "long", y: 0, color: '#e7ff16'},
+      {name: "long", y: 0, color: '#ffbf00'},
       {name: "work out", y: 0, color: '#428bca'}
     ]
 
@@ -91,7 +91,10 @@ var workoutPieChart = new Highcharts.Chart({
     pointFormat: 'Workout types proportion'
   },
   title: {
-    text: "Run types"
+    text: "Run types",
+    style: {
+                color: '#ffbf00'
+            }
   },
   series: [
     {

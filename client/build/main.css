@@ -7,22 +7,34 @@ h2 {
   font-family: 'Merienda One', cursive;
   background-color: #ffbf00;
   padding: 10px;
-  color: #428bca
+  color: #428bca;
+  text-align: center;
 }
 
 button {
     background-color: #5cb85c;
     border: none;
     color: #ffbf00;
-    padding: 10px 16px;
+    outline: none;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    margin: 4px 2px;
+    margin: 2px 2px;
     cursor: pointer;
     border-radius: 20px;
     border: 2px solid #428bca;
+}
+
+button:hover {
+  background-color: #03c692
+}
+
+button:active {
+  background-color: #03c692;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 body {
@@ -46,20 +58,6 @@ body {
   margin: 0 auto;
 }
 
-#koms div {
-  display: inline-block;
-  position: relative;
-  list-style: none;
-  padding: 10px;
-  margin: 10px;
-  height: 150px;
-  width: 250px;
-}
-
-#koms {
-  margin: 0 auto;
-}
-
 
 .centered {
     position: absolute;
@@ -72,31 +70,11 @@ body {
   width: 100%;
 }
 
-#act_name {
-  font-family: Merriweather;
-  color: #022691;
-}
-
-#distance {
-  font-family: Merriweather;
-  color: #004c11;
-}
-
-#time {
-  font-family: Merriweather;
-  color: #1d5984;
-}
-
-#elevation {
-  font-family: Merriweather;
-  color: #ad1a00;
-}
-
 
 #select-race-div {
   background-color: #e35d6a;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 select, #select-race-button {
@@ -107,8 +85,22 @@ select, #select-race-button {
 
 select {
   background-color: #428bca;
-  padding: 20px;
+  padding: 40px;
   margin-bottom: 20px;
+}
+
+#summary {
+  background-color: #5cb85c;
+  color: #428bca;
+  font-size: 30px;
+  text-align: center;
+}
+
+#elevation {
+  background-color: #428bca;
+  color: #5cb85c;
+  font-size: 30px;
+  text-align: center;
 }
 
 IMG {

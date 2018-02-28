@@ -3,13 +3,16 @@ var raceListSelector = require('./views/race_list_selector');
 var PieChart = require('./models/pie_chart');
 var Summary = require('./models/summary');
 var moment = require('moment');
+var Elevation = require('./models/elevation');
 
 var app = function() {
   var raceList = new RaceList();
   raceList.getRaceList(raceListSelector);
   var workoutPieChart = new PieChart();
   var summary = new Summary();
+  var elevation = new Elevation();
   summary.getData();
+  elevation.getData();
   workoutPieChart.getData();
 
   var viewRaceBtn = document.getElementById('select-race-button');
@@ -22,6 +25,7 @@ var app = function() {
 
     workoutPieChart.populatePieChart(null, endDate, startDate);
     summary.getTotalDistance(null, endDate, startDate);
+    elevation.getTotalElevation(null, endDate, startDate);
   });
 
 };

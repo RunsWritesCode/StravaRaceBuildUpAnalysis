@@ -1,14 +1,17 @@
 var RaceList = require('./models/race_list');
 var raceListSelector = require('./views/race_list_selector');
 var PieChart = require('./models/pie_chart');
+var Summary = require('./models/summary');
 var moment = require('moment');
 
 var app = function() {
   var raceList = new RaceList();
   raceList.getRaceList(raceListSelector);
   var workoutPieChart = new PieChart();
+  var summary = new Summary();
+  summary.getData();
+  workoutPieChart.getData();
 
-  //bind the button event
   var viewRaceBtn = document.getElementById('select-race-button');
 
   viewRaceBtn.addEventListener('click', function(){
@@ -16,13 +19,10 @@ var app = function() {
 
     var endDate = moment(raceList.value, "YYYY-MM-DD");
     var startDate = moment(endDate).subtract(3, 'months');
-    // var startDate = moment(lastthree, "YYYY-MM-DD");
-    // console.log(startDate);
 
     workoutPieChart.populatePieChart(null, endDate, startDate);
-  })
-
-
+    summary.getTotalDistance(null, endDate, startDate);
+  });
 
 };
 

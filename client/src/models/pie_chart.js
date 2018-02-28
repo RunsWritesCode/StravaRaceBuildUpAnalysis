@@ -5,13 +5,19 @@ const Moment = require('moment');
 const MomentRange = require('moment-range');
 const moment = MomentRange.extendMoment(Moment);
 
-
 const PieChart = function() {
   this.url = 'https://www.strava.com/api/v3/athlete/activities?access_token=' + keys.apiKey + '&client_id=' + keys.clientId + '&client_secret=' + keys.clientSecret + '&per_page=200';
   this.activities = [];
   this.filteredActivities = [];
-  request(this.populatePieChart.bind(this), this.url);
 };
+
+PieChart.prototype.getData = function(){
+  request(this.onRequestComplete.bind(this), this.url);
+}
+
+PieChart.prototype.onRequestComplete = function(allActivities){
+  this.activities = allActivities;
+}
 
 PieChart.prototype.populatePieChart = function (allActivities, endDate, startDate) {
 
@@ -20,8 +26,6 @@ PieChart.prototype.populatePieChart = function (allActivities, endDate, startDat
   }
 
   if(startDate && endDate){
-    console.log("startDate:", startDate);
-    console.log("endDate:", endDate);
     var range = moment.range(startDate, endDate);
 
     this.activities.forEach((activity) => {
@@ -40,15 +44,14 @@ PieChart.prototype.populatePieChart = function (allActivities, endDate, startDat
 
   let pieChartDataHash = [
       {name: "easy", y: 0},
-      {name: "workout", y: 0},
+      {name: "race", y: 0},
       {name: "long", y: 0},
-      {name: "race", y: 0}
+      {name: "work out", y: 0}
     ]
 
 
 this.filteredActivities.forEach( function(element) {
 
-  // if loop to get date series
 
   switch (element.workout_type) {
     case 0:
@@ -75,6 +78,8 @@ this.filteredActivities.forEach( function(element) {
   return;
 });
 
+var rainbow = ['#5cb85c', '#e35d6a', '#e7ff16', '#428bca'];
+
 
 var container = document.getElementById("pie-chart");
 
@@ -91,8 +96,9 @@ var workoutPieChart = new Highcharts.Chart({
   },
   series: [
     {
-      name: name
-      data: pieChartDataHash
+      name: name,
+      data: pieChartDataHash,
+      // color: rainbow
     }
   ],
 });

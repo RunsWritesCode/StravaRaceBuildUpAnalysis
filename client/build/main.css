@@ -26,11 +26,12 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 20px;
     border: 2px solid #428bca;
+    font-family: 'Merienda One', cursive;
 }
 
 button:hover {
@@ -94,6 +95,8 @@ select {
   height: 28px;
   color: #ffbf00;
   font-size: 20px;
+  text-align: center;
+  font-family: 'Merienda One', cursive;
 }
 
 #summary, #summary-six {
@@ -140,4 +143,11 @@ select {
 	stroke: #e35d6a;
 	stroke-dasharray: 2, 2;
 	stroke-width: 2px;
+}
+
+footer {
+  padding: 20px;
+  background-color: #090023;
+  text-align: center;
+  color: #428bca;
 }

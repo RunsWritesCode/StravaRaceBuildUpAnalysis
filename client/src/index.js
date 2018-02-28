@@ -4,6 +4,9 @@ var PieChart = require('./models/pie_chart');
 var Summary = require('./models/summary');
 var moment = require('moment');
 var Elevation = require('./models/elevation');
+var PieChartSix = require('./models/pie_chart_six');
+var SummarySix = require('./models/summary_six');
+var ElevationSix = require('./models/elevation_six');
 
 var app = function() {
   var raceList = new RaceList();
@@ -14,6 +17,12 @@ var app = function() {
   summary.getData();
   elevation.getData();
   workoutPieChart.getData();
+  var workoutPieChartSix = new PieChartSix();
+  var summarySix = new SummarySix();
+  var elevationSix = new ElevationSix();
+  summarySix.getData();
+  elevationSix.getData();
+  workoutPieChartSix.getData();
 
   var viewRaceBtn = document.getElementById('select-race-button');
 
@@ -22,10 +31,13 @@ var app = function() {
 
     var endDate = moment(raceList.value, "YYYY-MM-DD");
     var startDate = moment(endDate).subtract(3, 'months');
-
+    var startDateSix = moment(endDate).subtract(1.5, 'months');
     workoutPieChart.populatePieChart(null, endDate, startDate);
     summary.getTotalDistance(null, endDate, startDate);
     elevation.getTotalElevation(null, endDate, startDate);
+    workoutPieChartSix.populatePieChart(null, endDate, startDateSix);
+    summarySix.getTotalDistance(null, endDate, startDateSix);
+    elevationSix.getTotalElevation(null, endDate, startDateSix);
   });
 
 };

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Strava data</title>
+  <title>Race build up analsis</title>
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Merienda+One|Merriweather" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
-  <!-- <script src="http://code.highcharts.com/highcharts.js"></script> -->
   <script src="bundle.js"></script>
 </head>
 <body>
@@ -20,7 +19,6 @@
     <h2>The weeks before your race looked like this:</h2>
   </div>
   <div id='main'>
-  <!-- <div id='twelve-weeks'> -->
     <div id='summary-box'>
       <div id='summary'>
         <p id='total-distance'></p>
@@ -41,13 +39,14 @@
         </div>
         <div id='pie-chart-six'>
         </div>
-      <!-- </div> -->
-    <!-- </div> -->
   </div>
+</div>
+<div id='input-div'>
+<input id='input' type="button" value="Reload Page" onClick="window.location.reload(true)">
 </div>
 <footer>
 <img src='./images/1.2 strava api logos/powered by Strava/pwrdBy_strava_gray/api_logo_pwrdBy_strava_horiz_gray.png'/>
-<p id='footer-text'>A full stack web app developed by Sophie Mullins as a final project at CodeClan, Edinburgh 2018.</p>
+<p id='footer-text'>A web app developed by Sophie Mullins as a final project at CodeClan, Edinburgh 2018.</p>
 <p><a href="https://twitter.com/RunsWritesCode?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @RunsWritesCode</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 </footer>
 </body>

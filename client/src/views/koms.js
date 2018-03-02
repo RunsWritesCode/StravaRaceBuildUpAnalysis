@@ -35,3 +35,14 @@
 // }
 
 module.export = numberOfKoms;
+
+// var urlkoms = 'https://www.strava.com/api/v3/athletes/5620150/koms?access_token=' + keys.apiKey;
+// var requestkoms = new XMLHttpRequest();
+// requestkoms.open("GET", urlkoms);
+//
+// requestkoms.addEventListener('load', function() {
+//   var komsData = JSON.parse(requestkoms.responseText);
+//   renderKoms(komsData);
+// });
+//
+// requestkoms.send();
